@@ -1,0 +1,26 @@
+strjoin2 == strjoin libft;
+
+indices
+
+S / SO = 1
+N / NO = 2
+E / EA = 3
+W / WE = 4
+C  = 5
+F  = 6
+
+
+
+verif debut / fin, puis debut +1 et si charac apres vide
+
+
+		//printf("stock->pathspriteS = %s\n", stock.pathspriteS);
+		//printf("stock->pathspriteN = %s\n", stock.pathspriteN);
+		//printf("stock->pathspriteE = %s\n", stock.pathspriteE);
+		//printf("stock->pathspriteW = %s\n", stock.pathspriteW);
+		//printf("stock->valcfix[i] = %d\n", stock.valcfix1);
+		//printf("%d\n", stock.valcfix2);
+		//printf("%d\n", stock.valcfix3);
+		//printf("stock->valffix[i] = %d\n", stock.valffix1);
+		//printf("%d\n", stock.valffix2);
+		//printf("%d\n", stock.valffix3);
