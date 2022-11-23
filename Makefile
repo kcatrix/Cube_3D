@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+         #
+#    By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 21:50:04 by tnicoue           #+#    #+#              #
-#    Updated: 2022/11/18 10:15:33 by tnicoue          ###   ########.fr        #
+#    Updated: 2022/11/23 12:19:47 by kevyn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CC = gcc
 OBJECTS	= ./bin
  
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+
+CLINK= -framework OpenGL -framework AppKit
 
 SRCS = main.c parsing.c GNL/get_next_line.c GNL/get_next_line_utils.c parsing2.c \
 		parsing3.c parsing4.c checkopen.c valfix.c errparsing.c closedmap.c
@@ -42,7 +44,7 @@ bonus:
 ${NAME}: ${OBJS}
 		@echo "\033[1;36m""Compilation de ${NAME}..."
 	   	@$(MAKE) -j -s --no-print-directory -C lib/libft
-		$(CC) $(LIBPATH) $(OBJS) $(CFLAGS) -lncurses -o $(NAME)
+		$(CC) $(LIBPATH) $(OBJS) $(CFLAGS) $(CLINK) libmlx.a -lncurses -o $(NAME)
 
 ${OBJECTS}/%.o: ${SOURCES}/%.c
 	@echo "Compilation de ${notdir $<}."
