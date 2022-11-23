@@ -6,7 +6,7 @@
 /*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/23 16:46:38 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/23 17:44:33 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,11 @@ void	ft_start_cube(t_3D *r);
 void	init_struct_r(t_stock *stock, t_3D *r);
 void	ft_cree_floor(t_stock *stock, t_3D *r);
 void	ft_cree_sky(t_stock *stock, t_3D *r);
+void	ft_cree_floor_loop(t_stock *stock, t_3D *r, int i, int y);
+void	ft_cree_sky_loop(t_stock *stock, t_3D *r, int i, int y);
+int		deal_key(int key, t_3D *r);
+void	init_struct_r(t_stock *stock, t_3D *r);
+void	init_struct_3D(t_3D *r);
+void	draw_floor(t_3D *r);
 
 #endif

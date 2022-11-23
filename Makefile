@@ -6,7 +6,7 @@
 #    By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 21:50:04 by tnicoue           #+#    #+#              #
-#    Updated: 2022/11/23 12:19:47 by kevyn            ###   ########.fr        #
+#    Updated: 2022/11/23 17:40:43 by kevyn            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 CLINK= -framework OpenGL -framework AppKit
 
 SRCS = main.c parsing.c GNL/get_next_line.c GNL/get_next_line_utils.c parsing2.c \
-		parsing3.c parsing4.c checkopen.c valfix.c errparsing.c closedmap.c
+		parsing3.c parsing4.c checkopen.c valfix.c errparsing.c closedmap.c \
+		sky_and_floor.c init.c cube.c
 RM = rm -f
 
 ifndef BONUS
