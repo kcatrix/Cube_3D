@@ -6,7 +6,7 @@
 /*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/23 11:10:44 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/23 16:46:38 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 # include <sys/wait.h>
 # include <termios.h>
 # include "../srcs/GNL/get_next_line.h"
+# include "../mlx/mlx.h"
+
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct s_stock
 {
@@ -56,7 +60,15 @@ typedef struct s_stock
 
 typedef struct s_3D
 {
-	char **map;
+	int		*buffer;
+	int		sizel;
+	int		bpp;
+	void	*img;
+	void	*mlx;
+	void	*win;
+	char 	**map;
+	int		floor[3];
+	int		sky[3];
 }	t_3D;
 
 char	*get_next_line(int fd);
@@ -93,7 +105,11 @@ int		verifind2(char **line2, int i);
 void	ft_checkopen2(t_stock *stock);
 void	ft_errplayer(t_stock *stock);
 void	verifpostmap(char **map, int i);
-char	**ft_cree_map(t_stock *stock, t_3D *next);
+void	ft_cree_map(t_stock *stock, t_3D *next);
 char	**ft_malloc_map(t_stock *stock, t_3D *r, int i);
+void	ft_start_cube(t_3D *r);
+void	init_struct_r(t_stock *stock, t_3D *r);
+void	ft_cree_floor(t_stock *stock, t_3D *r);
+void	ft_cree_sky(t_stock *stock, t_3D *r);
 
 #endif
