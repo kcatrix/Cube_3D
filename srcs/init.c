@@ -6,7 +6,7 @@
 /*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:35:45 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/23 17:39:23 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/24 16:03:45 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 void	init_struct_r(t_stock *stock, t_3D *r)
 {
+	ft_init_val(r);
 	ft_cree_map(stock, r);
 	ft_cree_floor(stock, r);
 	ft_cree_sky(stock, r);
+	ft_pos_player(r);
+	ft_dir_player(r);
+	/*printf("dir  = %c\n", r->dir);
+	printf("diry = %d\n", r->dirY);
+	printf("dirx = %d\n", r->dirX);
+	printf("posy = %d\n", r->pos_py);
+	printf("posx = %d\n", r->pos_px);*/
 	//ft_cree_way_wall(stock, r);
 }
 
@@ -83,4 +91,62 @@ char **ft_malloc_map(t_stock *stock, t_3D *r, int i)
 	}
 	r->map[y] = NULL;
 	return (r->map);
+}
+
+void	ft_pos_player(t_3D *r)
+{
+	int y;
+	int x;
+	
+	y = 0;
+	x = 0;
+	while (r->map[y])
+	{
+		while(r->map[y][x] != '\n')
+		{
+			if (r->map[y][x] == 'N' || r->map[y][x] == 'S' ||
+			 		r->map[y][x] == 'E' || r->map[y][x] == 'W')
+			{
+				r->pos_px = x;
+				r->pos_py = y;
+				r->dir = r->map[y][x];
+				return ;
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+	r->pos_px = 0;
+	r->pos_py = 0;	
+}
+
+void	ft_dir_player(t_3D *r)
+{
+	if (r->dir == 'N')
+	{
+		r->dirY = -1;
+		r->dirX = 0;
+	}
+	if (r->dir == 'S')
+	{
+		r->dirY = 1;
+		r->dirX = 0;
+	}
+	if (r->dir == 'E')
+	{
+		r->dirY = 0;
+		r->dirX = 1;
+	}
+	if (r->dir == 'W')
+	{
+		r->dirY = 0;
+		r->dirX = -1;
+	}
+}
+
+void	ft_init_val(t_3D *r)
+{
+	r->planeX = 0;
+	r->planeY = 0.66;
 }

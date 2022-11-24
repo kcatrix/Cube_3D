@@ -6,7 +6,7 @@
 /*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/23 17:44:33 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/24 17:03:26 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <readline/history.h>
 # include <sys/wait.h>
 # include <termios.h>
+# include <math.h>
 # include "../srcs/GNL/get_next_line.h"
 # include "../mlx/mlx.h"
 
@@ -58,6 +59,27 @@ typedef struct s_stock
 	int		playernb;
 }	t_stock;
 
+typedef struct s_rayon
+{
+	int		x;
+	int		y;
+	double	dir_x;
+	double	dir_y;
+	double	delta_x;
+	double	delta_y;
+	double	side_x;
+	double	side_y;
+	int		step_x;
+	int		step_y;
+	double	dist;
+	int		hit;
+	int		side;
+	double	wallx;
+	int		nb;
+	int		h;
+	
+}	t_rayon;
+
 typedef struct s_3D
 {
 	int		*buffer;
@@ -69,9 +91,19 @@ typedef struct s_3D
 	char 	**map;
 	int		floor[3];
 	int		sky[3];
+	double	pos_px;
+	double	pos_py;
+	char	dir;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+	t_rayon	rayon;
+	
 }	t_3D;
 
 char	*get_next_line(int fd);
+void	ft_pos_player(t_3D *r);
 int		compteur_sot(char *stock);
 char	*after(char	**stock, int i);
 char	*end(char **stock);
@@ -117,5 +149,8 @@ int		deal_key(int key, t_3D *r);
 void	init_struct_r(t_stock *stock, t_3D *r);
 void	init_struct_3D(t_3D *r);
 void	draw_floor(t_3D *r);
+void	ft_dir_player(t_3D *r);
+void	ft_init_val(t_3D *r);
+void	init_ray(t_3D *g);
 
 #endif

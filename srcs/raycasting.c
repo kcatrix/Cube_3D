@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.c                                             :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 17:40:56 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/24 16:43:22 by kevyn            ###   ########.fr       */
+/*   Created: 2022/11/24 16:30:17 by kevyn             #+#    #+#             */
+/*   Updated: 2022/11/24 17:02:53 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	boucle(t_3D	*r)
+void	raycasting(t_3D *g)
 {
-	//ft_key(&r);
-	draw_floor(r);
-	//raycasting(&r);
-	return (1);
+	g->rayon.nb = 0;
+	while(g->rayon.nb < WIDTH)
+	{
+		init_ray(g);
+	}
 }
 
-void	ft_start_cube(t_3D *r)
+void	init_ray(t_3D *g)
 {
-	r->mlx = mlx_init();
-	r->win = mlx_new_window(r->mlx, WIDTH, HEIGHT, "Cub3D");
-	init_struct_3D(r);
-	mlx_key_hook(r->win, deal_key, &r);
-	mlx_loop_hook(r->mlx, boucle, r);	
-	mlx_loop(r->mlx);
+	double val;
+
+	val = 2 * g->rayon.nb / (double) WIDTH - 1;
+	g->rayon.x = (int) g->pos_px;
+	g->rayon.y = (int) g->pos_py;
+	g->rayon.dir_x = g->dirX + g->planeX * val;
+	g->rayon.dir_y = g->dirY + g->planeY * val;
 }
