@@ -23,7 +23,7 @@ void	ft_checkaround(int i, size_t j, char **map)
 		exit(0);
 	}
 	if (ft_strlen(map[i + 1]) < j || (map[i + 1][j] != '1'
-		&& map[i + 1][j] != 'E' && map[i - 1][j] != 'N'
+		&& map[i + 1][j] != 'E' && map[i + 1][j] != 'N'
 		&& map[i + 1][j] != 'S' && map[i + 1][j] != 'W'
 		&& map[i + 1][j] != '0'))
 	{

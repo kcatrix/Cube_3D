@@ -44,7 +44,7 @@ void	ft_checkopen2(t_stock *stock)
 		stock->testfd++;
 	}
 	if (stock->testfd > 0)
-		return ;
+		exit(0);
 }
 
 void	verifpostmap(char **map, int i)

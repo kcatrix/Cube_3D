@@ -35,13 +35,9 @@ void	checkmapfin(char **map, int i, t_stock *stock)
 	while (checkspace(map[i]) == 1)
 		i++;
 	stock->debut = i;
-	printf("ahouais\n");
 	ft_checkmapchar(map, stock->debut);
-	printf("test\n");
 	ft_checkmapplayer(map, stock->debut, stock);
-	printf("numero\n");
 	ft_checkbeginend(map, stock->debut);
-	printf("1\n");
 	ft_checkmapwall(map, stock->debut);
 }
 

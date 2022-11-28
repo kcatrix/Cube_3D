@@ -71,7 +71,6 @@ void	ft_valfix2(char **str)
 	j = 0;
 	while (str[i])
 		i++;
-	printf("i = %d\n", i);
 	while (str[i - 1][j] != '\n')
 		j++;
 	str[i - 1][j] = '\0';

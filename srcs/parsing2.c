@@ -66,7 +66,6 @@ int	verifind2(char **line2, int i)
 
 void	valaffect(int i, t_stock *stock, char **line)
 {
-	printf("line2[1] = %s, i = %d\n", line[1], i);
 	if (i == 1 && chkdoublon(stock->pathsprites) == 0)
 		stock->pathsprites = ft_strdup(line[1]);
 	if (i == 2 && chkdoublon(stock->pathspriten) == 0)

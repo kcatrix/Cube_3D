@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 			return (0);
 		checkmapdebut(stock.map, &stock);
 		valfix(&stock);
-		ft_checkopen(&stock);
+		//ft_checkopen(&stock);
 		init_struct_r(&stock, &r);
 		ft_start_cube(&r);
 	}
@@ -41,6 +41,8 @@ int	main(int ac, char **av)
 int	deal_key(int key, t_3D *r)
 {
 	if (key == 53)
+		exit('exit');
+	if (key == 17)
 		exit('exit');
 	(void) r;
 	return (0);
