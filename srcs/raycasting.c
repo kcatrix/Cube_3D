@@ -14,11 +14,36 @@
 
 void	raycasting(t_3D *g)
 {
+	//double ratio;
+	int		draw_start;
+	int		draw_end;
+	int i;
+
 	g->rayon.nb = 0;
+	int lineHeight = (int)(HEIGHT / g->rayon.dist);
 	while(g->rayon.nb < WIDTH)
 	{
 		init_ray(g);
-		//dda(g);
+		dda(g);
+		g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
+		if (g->rayon.side == 0 || g->rayon.side == 1)
+			g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
+		else
+			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
+		draw_start = -lineHeight / 2 + HEIGHT / 2;
+	
+		if(draw_start < 0)
+			draw_start = 0;
+     	draw_end = -lineHeight / 2 + HEIGHT / 2;
+      	if(draw_end >= HEIGHT)
+			draw_end = HEIGHT - 1;
+		i = draw_start;
+		while(i < draw_end)
+		{
+			i++;
+		}
+		g->rayon.nb++;
+		mlx_put_image_to_window(g->mlx, g->win, g->img, 0,0);
 	}
 }
 
@@ -51,18 +76,28 @@ void	init_ray(t_3D *g)
 
 void	dda(t_3D *g)
 {
-	while(g->rayon.hit == 0)
+	while (g->rayon.hit == 0)
 	{
-		if(g->rayon.side_x < g->rayon.side_y)
+		if (g->rayon.side_x < g->rayon.side_y)
 		{
 			g->rayon.side_x += g->rayon.delta_x;
 			g->rayon.x += g->rayon.step_x;
+			if (g->rayon.step_x == -1)
+				g->rayon.side = 0;
+			else
+				g->rayon.side = 1;
 		}
 		else
 		{
 			g->rayon.side_y += g->rayon.delta_y;
 			g->rayon.y += g->rayon.step_y;
+			if (g->rayon.step_y == -1)
+				g->rayon.side = 2;
+			else
+				g->rayon.side = 3;
 		}
+		if (g->map[g->rayon.y][g->rayon.x] == '1')
+			g->rayon.hit = 1;
 	}
 }
 

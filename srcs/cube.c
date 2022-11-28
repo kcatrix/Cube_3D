@@ -16,8 +16,8 @@ int	boucle(t_3D	*r)
 {
 	(void) r;
 	//ft_key(&r);
-	//draw_floor(r);
-	//raycasting(&r);
+	draw_floor(r);
+	raycasting(r);
 	return (1);
 }
 

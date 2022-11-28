@@ -153,5 +153,7 @@ void	ft_dir_player(t_3D *r);
 void	ft_init_val(t_3D *r);
 void	init_ray(t_3D *g);
 void	get_step(t_3D *g);
+void	dda(t_3D *g);
+void	raycasting(t_3D *g);
 
 #endif

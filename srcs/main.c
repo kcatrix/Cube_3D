@@ -68,6 +68,5 @@ void	draw_floor(t_3D *r)
 	color = create_trgb(0, r->sky[0], r->sky[1], r->sky[2]);
 	while (x >= 0)
 		r->buffer[x--] = color;
-	mlx_put_image_to_window(r->mlx, r->win, r->img, 0,0);
 }
 
