@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	int		y;
 	int		i;
 	t_stock	stock;
-	t_3D 	r;
+	t_3D	r;
 
 	i = 0;
 	y = 0;
@@ -64,10 +64,11 @@ void	draw_floor(t_3D *r)
 	color = create_trgb(0, r->floor[0], r->floor[1],
 			r->floor[2]);
 	while (x >= mid)
+	{
 		r->buffer[x--] = color;
+	}
 	color = create_trgb(0, r->sky[0], r->sky[1], r->sky[2]);
 	while (x >= 0)
 		r->buffer[x--] = color;
-	mlx_put_image_to_window(r->mlx, r->win, r->img, 0,0);
+	mlx_put_image_to_window(r->mlx, r->win, r->img, 0, 0);
 }
-

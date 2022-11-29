@@ -17,8 +17,7 @@ void	raycasting(t_3D *g)
 	//double ratio;
 	int		draw_start;
 	int		draw_end;
-	int i;
-
+	//int		i;
 	g->rayon.nb = 0;
 	int lineHeight = (int)(HEIGHT / g->rayon.dist);
 	while(g->rayon.nb < WIDTH)
@@ -30,31 +29,32 @@ void	raycasting(t_3D *g)
 			g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		else
 			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
-		
-		// draw_start = -lineHeight / 2 + HEIGHT / 2;
-	
+		draw_start = -lineHeight / 2 + HEIGHT / 2;
+		draw_end = -lineHeight / 2 + HEIGHT / 2;
+		draw_color(g, draw_start, draw_end);
 		// if(draw_start < 0)
 		// 	draw_start = 0;
-     	// draw_end = -lineHeight / 2 + HEIGHT / 2;
       	// if(draw_end >= HEIGHT)
 		// 	draw_end = HEIGHT - 1;
 		// i = draw_start;
 		// while(i < draw_end)
 		// {
-			
 		// 	i++;
 		// }
-		r.h = (int)(((double)HEIGHT * ratio) / r.dist);
-		draw_texture(cub, &r, -r.h / 2 + HEIGHT / 2, r.h / 2 + HEIGHT / 2);
 		g->rayon.nb++;
 	}
-	mlx_put_image_to_window(g->mlx, g->win, g->img, 0,0);
+	mlx_put_image_to_window(g->mlx, g->win, g->img, 0, 0);
 	return ;
+}
+
+void	draw_color(t_3D *g, int start, int end)
+{
+	
 }
 
 void	init_ray(t_3D *g)
 {
-	double val;
+	double	val;
 
 	val = 2 * g->rayon.nb / (double) WIDTH - 1;
 	g->rayon.x = (int) g->pos_px;

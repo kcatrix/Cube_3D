@@ -77,7 +77,6 @@ typedef struct s_rayon
 	double	wallx;
 	int		nb;
 	int		h;
-	
 }	t_rayon;
 
 typedef struct s_3D
@@ -88,7 +87,7 @@ typedef struct s_3D
 	void	*img;
 	void	*mlx;
 	void	*win;
-	char 	**map;
+	char	**map;
 	int		floor[3];
 	int		sky[3];
 	double	pos_px;
@@ -99,7 +98,6 @@ typedef struct s_3D
 	double	planeX;
 	double	planeY;
 	t_rayon	rayon;
-	
 }	t_3D;
 
 char	*get_next_line(int fd);

@@ -14,7 +14,7 @@
 
 int	boucle(t_3D	*r)
 {
-	//ft_key(&r);
+	ft_key(&r);
 	draw_floor(r);
 	raycasting(r);
 	return (1);
@@ -26,6 +26,6 @@ void	ft_start_cube(t_3D *r)
 	r->win = mlx_new_window(r->mlx, WIDTH, HEIGHT, "Cub3D");
 	init_struct_3D(r);
 	mlx_key_hook(r->win, deal_key, &r);
-	mlx_loop_hook(r->mlx, boucle, r);	
+	mlx_loop_hook(r->mlx, boucle, r);
 	mlx_loop(r->mlx);
 }

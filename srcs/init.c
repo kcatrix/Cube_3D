@@ -41,12 +41,11 @@ void	init_struct(t_stock *stock)
 
 void	init_struct_3D(t_3D *r)
 {
-	int x;
-	
+	int	x;
+
 	r->img = mlx_new_image(r->mlx, WIDTH, HEIGHT);
 	r->buffer = (int *) mlx_get_data_addr(r->img, &r->bpp,
 			&r->sizel, &x);
-	
 }
 
 void	ft_cree_map(t_stock *stock, t_3D *r)
@@ -82,7 +81,7 @@ char **ft_malloc_map(t_stock *stock, t_3D *r, int i)
 	res = i;
 	while(stock->map[res])
 		res++;
-	r->map = malloc(sizeof(char **) * res + 1);
+	r->map = malloc(sizeof(char **) * (res + 1));
 	while(stock->map[i])
 	{
 		r->map[y] = strdup(stock->map[i]);
@@ -118,7 +117,7 @@ void	ft_pos_player(t_3D *r)
 		y++;
 	}
 	r->pos_px = 0;
-	r->pos_py = 0;	
+	r->pos_py = 0;
 }
 
 void	ft_dir_player(t_3D *r)

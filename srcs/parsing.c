@@ -57,7 +57,7 @@ int	formatmap(int fd, t_stock *stock, int y)
 {
 	int	i;
 
-	stock->map = malloc(sizeof(char *) * y + 1);
+	stock->map = malloc(sizeof(char *) * (y + 1));
 	i = 0;
 	while (i < y)
 	{
