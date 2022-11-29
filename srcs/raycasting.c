@@ -30,21 +30,26 @@ void	raycasting(t_3D *g)
 			g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		else
 			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
-		draw_start = -lineHeight / 2 + HEIGHT / 2;
+		
+		// draw_start = -lineHeight / 2 + HEIGHT / 2;
 	
-		if(draw_start < 0)
-			draw_start = 0;
-     	draw_end = -lineHeight / 2 + HEIGHT / 2;
-      	if(draw_end >= HEIGHT)
-			draw_end = HEIGHT - 1;
-		i = draw_start;
-		while(i < draw_end)
-		{
-			i++;
-		}
+		// if(draw_start < 0)
+		// 	draw_start = 0;
+     	// draw_end = -lineHeight / 2 + HEIGHT / 2;
+      	// if(draw_end >= HEIGHT)
+		// 	draw_end = HEIGHT - 1;
+		// i = draw_start;
+		// while(i < draw_end)
+		// {
+			
+		// 	i++;
+		// }
+		r.h = (int)(((double)HEIGHT * ratio) / r.dist);
+		draw_texture(cub, &r, -r.h / 2 + HEIGHT / 2, r.h / 2 + HEIGHT / 2);
 		g->rayon.nb++;
-		mlx_put_image_to_window(g->mlx, g->win, g->img, 0,0);
 	}
+	mlx_put_image_to_window(g->mlx, g->win, g->img, 0,0);
+	return ;
 }
 
 void	init_ray(t_3D *g)

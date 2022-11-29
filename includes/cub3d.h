@@ -155,5 +155,6 @@ void	init_ray(t_3D *g);
 void	get_step(t_3D *g);
 void	dda(t_3D *g);
 void	raycasting(t_3D *g);
+int		create_trgb(int t, int r, int g, int b);
 
 #endif
