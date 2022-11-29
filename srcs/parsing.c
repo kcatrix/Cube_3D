@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:18 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/18 09:32:25 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/11/29 16:42:10 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	formatmap(int fd, t_stock *stock, int y)
 	stock->map[i] = NULL;
 	close(fd);
 	i = 0;
+	ft_lexer(stock);
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/24 17:03:26 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/29 15:59:27 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,5 +154,11 @@ void	get_step(t_3D *g);
 void	dda(t_3D *g);
 void	raycasting(t_3D *g);
 int		create_trgb(int t, int r, int g, int b);
+void	last_parse(t_stock *s);
+void	ft_verif_dir(t_stock *s);
+void	ft_lexer(t_stock *s);
+void	ft_lexer_f(t_stock *s, int i);
+void	ft_lexer_c(t_stock *s, int i);
+void	ft_lexer_virgule(t_stock *s, int i);
 
 #endif

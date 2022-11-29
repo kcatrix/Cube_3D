@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:58:50 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/18 10:25:26 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/11/29 16:45:47 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	ft_checkval(t_stock *stock)
 {
 	if ((stock->valcfix3 < stock->vmin || stock->valcfix3 > stock->vmax)
-		|| (stock->valcfix3 < stock->vmin || stock->valcfix3 > stock->vmax)
-		|| (stock->valcfix3 < stock->vmin || stock->valcfix3 > stock->vmax))
+		|| (stock->valcfix2 < stock->vmin || stock->valcfix2 > stock->vmax)
+		|| (stock->valcfix1 < stock->vmin || stock->valcfix1 > stock->vmax))
 	{
 		printf("erreur, mauvaises valeurs dans C\n");
 		exit(0);
 	}
 	if ((stock->valffix3 < stock->vmin || stock->valffix3 > stock->vmax)
-		|| (stock->valffix3 < stock->vmin || stock->valffix3 > stock->vmax)
-		|| (stock->valffix3 < stock->vmin || stock->valffix3 > stock->vmax))
+		|| (stock->valffix2 < stock->vmin || stock->valffix2 > stock->vmax)
+		|| (stock->valffix1 < stock->vmin || stock->valffix1 > stock->vmax))
 	{
 		printf("erreur, mauvaises valeurs dans F\n");
 		exit(0);

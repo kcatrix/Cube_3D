@@ -31,7 +31,7 @@ void	raycasting(t_3D *g)
 			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
 		draw_start = -lineHeight / 2 + HEIGHT / 2;
 		draw_end = -lineHeight / 2 + HEIGHT / 2;
-		draw_color(g, draw_start, draw_end);
+		//draw_color(g, draw_start, draw_end);
 		// if(draw_start < 0)
 		// 	draw_start = 0;
       	// if(draw_end >= HEIGHT)
@@ -47,10 +47,13 @@ void	raycasting(t_3D *g)
 	return ;
 }
 
-void	draw_color(t_3D *g, int start, int end)
+//.xpm 
+//directory 
+
+/*void	draw_color(t_3D *g, int start, int end)
 {
 	
-}
+}*/
 
 void	init_ray(t_3D *g)
 {

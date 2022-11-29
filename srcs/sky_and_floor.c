@@ -14,14 +14,12 @@
 
 void	ft_cree_floor(t_stock *stock, t_3D *r)
 {
-	int i;
+	int	i;
 	int	y;
 
 	i = 0;
 	y = 0;
-	
-	
-	while(stock->map[i])
+	while (stock->map[i])
 	{
 		if (stock->map[i][0] == 'F')
 			ft_cree_floor_loop(stock, r, i, y);
@@ -31,18 +29,17 @@ void	ft_cree_floor(t_stock *stock, t_3D *r)
 
 void	ft_cree_floor_loop(t_stock *stock, t_3D *r, int i, int y)
 {
-	int index;
-	int index2;
-	char res[5];
-	
+	int		index;
+	int		index2;
+	char	res[5];
+
 	index = 0;
 	index2 = 0;
-	
-	while(stock->map[i][y] != '\n')
+	while (stock->map[i][y] != '\n')
 	{
-		while(ft_isdigit(stock->map[i][y]) != 1)
+		while (ft_isdigit(stock->map[i][y]) != 1)
 			y++;
-		while(ft_isdigit(stock->map[i][y]) == 1)
+		while (ft_isdigit(stock->map[i][y]) == 1)
 		{
 			res[index] = stock->map[i][y];
 			index++;
@@ -58,12 +55,12 @@ void	ft_cree_floor_loop(t_stock *stock, t_3D *r, int i, int y)
 
 void	ft_cree_sky(t_stock *stock, t_3D *r)
 {
-	int i;
+	int	i;
 	int	y;
-	
+
 	i = 0;
 	y = 0;
-	while(stock->map[i])
+	while (stock->map[i])
 	{
 		if (stock->map[i][0] == 'C')
 			ft_cree_sky_loop(stock, r, i, y);
@@ -73,22 +70,22 @@ void	ft_cree_sky(t_stock *stock, t_3D *r)
 
 void	ft_cree_sky_loop(t_stock *stock, t_3D *r, int i, int y)
 {
-	int index;
-	int index2;
-	char res[5];
+	int		index;
+	int		index2;
+	char	res[5];
 
 	index = -1;
 	index2 = 0;
-	while(stock->map[i][y] != '\n')
+	while (stock->map[i][y] != '\n')
 	{
-		while(ft_isdigit(stock->map[i][y]) != 1)
+		while (ft_isdigit(stock->map[i][y]) != 1)
 			y++;
-		while(ft_isdigit(stock->map[i][y]) == 1)
+		while (ft_isdigit(stock->map[i][y]) == 1)
 			res[++index] = stock->map[i][y++];
 		r->sky[index2++] = ft_atoi(res);
 		index = 0;
 		while (res[index])
 			res[index++] = '\0';
-		index = -1;	
+		index = -1;
 	}
 }

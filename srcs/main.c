@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/23 17:42:24 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/29 16:42:34 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,12 @@ int	main(int ac, char **av)
 			return (0);
 		if (formatmap(map, &stock, y) == -1)
 			return (0);
+		while (stock.map[i])
+			printf("%s\n", stock.map[i++]);
 		checkmapdebut(stock.map, &stock);
 		valfix(&stock);
 		//ft_checkopen(&stock);
+		last_parse(&stock);
 		init_struct_r(&stock, &r);
 		ft_start_cube(&r);
 	}
