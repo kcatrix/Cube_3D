@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:30:17 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/30 11:58:05 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 14:04:57 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,20 @@ void	raycasting(t_3D *g)
 	{
 		init_ray(g);
 		dda(g);
-		printf("2    g->rayon.x = %d, g->pos_px %f\n", g->rayon.x, g->pos_px);
 		g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		if (g->rayon.side == 0 || g->rayon.side == 1)
 			g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		else
 			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
-		printf("3    g->rayon = %f, g->rayon.step_x %d\n", g->rayon.dist, g->rayon.step_x);
 		g->columnheight = (int)(((double)HEIGHT * ratio) / g->rayon.dist);
 		g->draw_start = (-g->columnheight / 2 + HEIGHT / 2);
 		g->draw_end = (g->columnheight / 2 + HEIGHT / 2);
-		if(g->draw_start < 0)
+		if (g->draw_start < 0)
 			g->draw_start = 0;
-		if(g->draw_end > HEIGHT)
+		if (g->draw_end > HEIGHT)
 			g->draw_end = HEIGHT - 1;
 		draw_color(g);
-        g->rayon.nb++;
+		g->rayon.nb++;
 	}
 	mlx_put_image_to_window(g->mlx, g->win, g->img, 0, 0);
 	return ;

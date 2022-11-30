@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+         #
+#    By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 21:50:04 by tnicoue           #+#    #+#              #
-#    Updated: 2022/11/24 16:29:33 by kevyn            ###   ########.fr        #
+#    Updated: 2022/11/30 13:25:09 by kcatrix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CLINK= -framework OpenGL -framework AppKit
 
 SRCS = main.c parsing.c GNL/get_next_line.c GNL/get_next_line_utils.c parsing2.c \
 		parsing3.c parsing4.c checkopen.c valfix.c errparsing.c closedmap.c \
-		sky_and_floor.c init.c cube.c raycasting.c
+		sky_and_floor.c init.c cube.c raycasting.c ft_key.c
 RM = rm -f
 
 ifndef BONUS

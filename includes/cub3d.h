@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 11:58:05 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 14:10:34 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ typedef struct s_3D
 	int		columnheight;
 	int		draw_start;
 	int		draw_end;
+	double	speed;
 	t_rayon	rayon;
 }	t_3D;
 
@@ -166,5 +167,6 @@ void	ft_lexer_virgule(t_stock *s, int i);
 void	ft_fov(t_3D *r);
 double	fov_gest(t_3D *r, int check);
 void	draw_color(t_3D *g);
+void	upright(t_3D *g);
 
 #endif

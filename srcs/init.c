@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:35:45 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/30 11:38:43 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 14:03:22 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ void	init_struct_r(t_stock *stock, t_3D *r)
 	ft_pos_player(r);
 	ft_dir_player(r);
 	ft_fov(r);
-	/*printf("dir  = %c\n", r->dir);
-	printf("diry = %d\n", r->diry);
-	printf("dirx = %d\n", r->dirx);
-	printf("posy = %d\n", r->pos_py);
-	printf("posx = %d\n", r->pos_px);*/
 	//ft_cree_way_wall(stock, r);
 }
 
@@ -180,4 +175,5 @@ void	ft_init_val(t_3D *r)
 {
 	r->planex = 0;
 	r->planey = 0.66;
+	r->speed = 0.2;
 }

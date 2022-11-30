@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/29 16:42:34 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 14:10:39 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,14 @@ int	deal_key(int key, t_3D *r)
 		exit('exit');
 	if (key == 17)
 		exit('exit');
-	(void) r;
+	if (key == 13 || key == 124)
+		upright(r);
+	/*if (key == 1)
+		down(r);
+	if (key == 123)
+		left_f(r);
+	if (key == 124)
+		right_f(r);*/
 	return (0);
 }
 

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.c                                             :+:      :+:    :+:   */
+/*   ft_key.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 17:40:56 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/30 14:00:32 by kcatrix          ###   ########.fr       */
+/*   Created: 2022/11/30 13:24:31 by kcatrix           #+#    #+#             */
+/*   Updated: 2022/11/30 14:11:49 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	boucle(t_3D	*r)
+void	upright(t_3D *g)
 {
-	draw_floor(r);
-	raycasting(r);
-	return (1);
-}
-
-void	ft_start_cube(t_3D *r)
-{
-	r->mlx = mlx_init();
-	r->win = mlx_new_window(r->mlx, WIDTH, HEIGHT, "Cub3D");
-	init_struct_3D(r);
-	mlx_key_hook(r->win, deal_key, r);
-	mlx_loop_hook(r->mlx, boucle, r);
-	mlx_loop(r->mlx);
+	if (g->map[(int)(g->pos_py + g->diry * g->speed)][(int)g->pos_px] != '1'
+		&& g->map[(int)(g->pos_py + g->diry * g->speed)][(int)g->pos_px])
+		g->pos_py += g->diry * g->speed;
+	if (g->map[(int)(g->pos_py)][(int)(g->pos_px + g->dirx * g->speed)] != '1'
+		&& g->map[(int)(g->pos_py)][(int)(g->pos_px + g->dirx * g->speed)])
+		g->pos_px += g->dirx * g->speed;
 }
