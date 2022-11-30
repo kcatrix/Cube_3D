@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 14:10:39 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 15:35:38 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	main(int ac, char **av)
 			return (0);
 		if (formatmap(map, &stock, y) == -1)
 			return (0);
-		while (stock.map[i])
-			printf("%s\n", stock.map[i++]);
 		checkmapdebut(stock.map, &stock);
 		valfix(&stock);
 		//ft_checkopen(&stock);
@@ -47,14 +45,14 @@ int	deal_key(int key, t_3D *r)
 		exit('exit');
 	if (key == 17)
 		exit('exit');
-	if (key == 13 || key == 124)
+	if (key == 13)
 		upright(r);
-	/*if (key == 1)
+	if (key == 1)
 		down(r);
 	if (key == 123)
-		left_f(r);
+		left(r);
 	if (key == 124)
-		right_f(r);*/
+		right(r);
 	return (0);
 }
 

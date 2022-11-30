@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:35:45 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/30 14:03:22 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 16:25:51 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	init_struct_r(t_stock *stock, t_3D *r)
 {
 	ft_init_val(r);
 	ft_cree_map(stock, r);
-	ft_cree_floor(stock, r);
 	ft_cree_sky(stock, r);
 	ft_pos_player(r);
 	ft_dir_player(r);
@@ -78,25 +77,12 @@ void	init_struct_3D(t_3D *r)
 void	ft_cree_map(t_stock *stock, t_3D *r)
 {
 	int	i;
-	int	y;
 
 	i = 0;
-	y = 0;
-	while(stock->map[i])
-	{
-		while(stock->map[i][y])
-		{
-			if (stock->map[i][y] == '1' 
-				&& stock->map[i][y + 1] == '1' && stock->map[i][y + 2] == '1')
-			{
-				r->map = ft_malloc_map(stock, r, i);
-				return ;
-			}
-			y++;
-		}
-		y = 0;
-		i++;
-	}
+	r->map = stock->mapf;
+	printf("test\n");
+	while(r->map[i])
+		printf("%s\n", r->map[i++]);
 }
 
 char **ft_malloc_map(t_stock *stock, t_3D *r, int i)
@@ -175,5 +161,6 @@ void	ft_init_val(t_3D *r)
 {
 	r->planex = 0;
 	r->planey = 0.66;
-	r->speed = 0.2;
+	r->speed = 0.08;
+	r->rotspeed = 0.06;
 }

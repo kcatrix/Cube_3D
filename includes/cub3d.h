@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 14:10:34 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 15:58:38 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 typedef struct s_stock
 {
 	char	**map;
+	char	**mapf;
 	char	*pathspriten;
 	char	*pathsprites;
 	char	*pathspritew;
@@ -101,6 +102,7 @@ typedef struct s_3D
 	int		draw_start;
 	int		draw_end;
 	double	speed;
+	double	rotspeed;
 	t_rayon	rayon;
 }	t_3D;
 
@@ -168,5 +170,8 @@ void	ft_fov(t_3D *r);
 double	fov_gest(t_3D *r, int check);
 void	draw_color(t_3D *g);
 void	upright(t_3D *g);
-
+void	down(t_3D *g);
+void	left(t_3D *g);
+void	right(t_3D *g);
+void	ft_createmap(t_stock *stock, int i);
 #endif

@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:58:50 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/29 16:45:47 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 16:04:52 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,30 @@ void	checkmapfin(char **map, int i, t_stock *stock)
 	while (checkspace(map[i]) == 1)
 		i++;
 	stock->debut = i;
+	ft_createmap(stock, i);
 	ft_checkmapchar(map, stock->debut);
 	ft_checkmapplayer(map, stock->debut, stock);
 	ft_checkbeginend(map, stock->debut);
 	ft_checkmapwall(map, stock->debut);
+}
+
+void	ft_createmap(t_stock *stock, int i)
+{
+	int	y;
+
+	y = i;
+	while (stock->map[y])
+		y++;
+	stock->mapf = malloc(sizeof(char *) * ((y - i) + 1));
+	y = i;
+	i = 0;
+	while (stock->map[y])
+	{
+		stock->mapf[i] = ft_strdup(stock->map[y]);
+		i++;
+		y++;
+	}
+	stock->mapf[i] = NULL;
 }
 
 void	ft_checkmapwall(char **map, int i)
