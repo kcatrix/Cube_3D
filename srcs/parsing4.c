@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:40:50 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/29 16:34:57 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/11/30 10:44:02 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	ft_lexer_virgule(t_stock *s, int i)
 	while (ft_isdigit(s->map[i][y]) == 1)
 		y++;
 	if (s->map[i][y++] != ',')
-		exit(printf("erreur couleur\n"));
+		exit(printf("erreur du couleur\n"));
 	if (ft_isdigit(s->map[i][y]) == 0)
 		exit(printf("erreur couleur\n"));
 	while (ft_isdigit(s->map[i][y]) == 1)
@@ -138,5 +138,5 @@ void	ft_lexer_virgule(t_stock *s, int i)
 	while (ft_isdigit(s->map[i][y]) == 1)
 		y++;
 	if (s->map[i][y] != '\n')
-		exit(printf("erreur couleur\n"));
+		exit(printf("erreur  fin couleur\n"));
 }

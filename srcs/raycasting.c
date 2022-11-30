@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:30:17 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/24 17:02:53 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/11/30 11:58:05 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,43 @@
 
 void	raycasting(t_3D *g)
 {
-	//double ratio;
-	int		draw_start;
-	int		draw_end;
-	//int		i;
+	double	ratio;
+
+	ratio = ((double) WIDTH / (double) HEIGHT) / (4.0 / 3.0);
 	g->rayon.nb = 0;
-	int lineHeight = (int)(HEIGHT / g->rayon.dist);
-	while(g->rayon.nb < WIDTH)
+	while (g->rayon.nb < WIDTH)
 	{
 		init_ray(g);
 		dda(g);
+		printf("2    g->rayon.x = %d, g->pos_px %f\n", g->rayon.x, g->pos_px);
 		g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		if (g->rayon.side == 0 || g->rayon.side == 1)
 			g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		else
 			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
-		draw_start = -lineHeight / 2 + HEIGHT / 2;
-		draw_end = -lineHeight / 2 + HEIGHT / 2;
-		//draw_color(g, draw_start, draw_end);
-		// if(draw_start < 0)
-		// 	draw_start = 0;
-      	// if(draw_end >= HEIGHT)
-		// 	draw_end = HEIGHT - 1;
-		// i = draw_start;
-		// while(i < draw_end)
-		// {
-		// 	i++;
-		// }
-		g->rayon.nb++;
+		printf("3    g->rayon = %f, g->rayon.step_x %d\n", g->rayon.dist, g->rayon.step_x);
+		g->columnheight = (int)(((double)HEIGHT * ratio) / g->rayon.dist);
+		g->draw_start = (-g->columnheight / 2 + HEIGHT / 2);
+		g->draw_end = (g->columnheight / 2 + HEIGHT / 2);
+		if(g->draw_start < 0)
+			g->draw_start = 0;
+		if(g->draw_end > HEIGHT)
+			g->draw_end = HEIGHT - 1;
+		draw_color(g);
+        g->rayon.nb++;
 	}
 	mlx_put_image_to_window(g->mlx, g->win, g->img, 0, 0);
 	return ;
 }
 
-//.xpm 
-//directory 
-
-/*void	draw_color(t_3D *g, int start, int end)
+void	draw_color(t_3D *g)
 {
-	
-}*/
+	while (g->draw_start < g->draw_end)
+	{
+		g->buffer[g->draw_start * WIDTH + g->rayon.nb] = create_trgb(0, 0, 0, 0);
+		g->draw_start++;
+	}
+}
 
 void	init_ray(t_3D *g)
 {
@@ -62,8 +59,8 @@ void	init_ray(t_3D *g)
 	val = 2 * g->rayon.nb / (double) WIDTH - 1;
 	g->rayon.x = (int) g->pos_px;
 	g->rayon.y = (int) g->pos_py;
-	g->rayon.dir_x = g->dirX + g->planeX * val;
-	g->rayon.dir_y = g->dirY + g->planeY * val;
+	g->rayon.dir_x = g->dirx + g->planex * val;
+	g->rayon.dir_y = g->diry + g->planey * val;
 	if (g->rayon.dir_y == 0)
 		g->rayon.delta_x = 0;
 	else if (g->rayon.dir_x == 0)
