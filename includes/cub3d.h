@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/06 15:04:56 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:23:56 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void	ft_lexer_virgule(t_stock *s, int i);
 void	ft_fov(t_3D *r);
 double	fov_gest(t_3D *r, int check);
 void	draw_color(t_3D *g);
-void	upright(t_3D *g);
+void	up(t_3D *g);
 void	down(t_3D *g);
 void	left(t_3D *g);
 void	right(t_3D *g);

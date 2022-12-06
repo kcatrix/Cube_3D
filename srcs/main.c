@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/06 14:31:17 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:27:26 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	deal_key(int key, t_3D *r)
 	if (key == 17)
 		exit('exit');
 	if (key == 13)
-		upright(r);
+		up(r);
 	if (key == 1)
 		down(r);
 	if (key == 123)

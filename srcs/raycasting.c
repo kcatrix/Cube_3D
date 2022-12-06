@@ -6,7 +6,7 @@
 /*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:30:17 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/06 11:53:40 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:20:45 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	draw_color(t_3D *g)
 {
 	while (g->draw_start < g->draw_end)
 	{
-		g->buffer[g->draw_start * WIDTH + g->rayon.nb] = create_trgb(0, 0, 0, 0);
+		g->buffer[g->draw_start * WIDTH + g->rayon.nb] = create_trgb(0, 128, 128, 128);
 		g->draw_start++;
 	}
 }
