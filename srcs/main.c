@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 15:35:38 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 13:42:37 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 			return (0);
 		checkmapdebut(stock.map, &stock);
 		valfix(&stock);
-		//ft_checkopen(&stock);
+		ft_checkopen(&stock);
 		last_parse(&stock);
 		init_struct_r(&stock, &r);
 		ft_start_cube(&r);

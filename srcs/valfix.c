@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valfix.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:39:22 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/29 16:44:34 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 13:26:50 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	valfix(t_stock *stock)
 	stock->valffix2 = ft_atoi(stock->valf[1]);
 	stock->valffix3 = ft_atoi(stock->valf[2]);
 	ft_checkval(stock);
-	printf("test = %d\n", stock->valcfix2);
 }
 
 void	ft_valfix(char *str)
