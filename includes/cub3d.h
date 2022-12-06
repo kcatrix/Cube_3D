@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 15:58:38 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:04:56 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,4 +174,5 @@ void	down(t_3D *g);
 void	left(t_3D *g);
 void	right(t_3D *g);
 void	ft_createmap(t_stock *stock, int i);
+int		ft_key_press(int key, t_3D *r);
 #endif

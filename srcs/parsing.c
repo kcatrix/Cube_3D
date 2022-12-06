@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:18 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/06 11:57:45 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/06 14:42:47 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	openmap(char **av, int *y)
 		return (err_mapnotfound());
 	else
 		(*y) = ft_lenghtmap(fd, mappath);
+	free(mappath);
 	return (fd);
 }
 

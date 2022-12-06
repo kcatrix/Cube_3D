@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:24:31 by kcatrix           #+#    #+#             */
-/*   Updated: 2022/11/30 15:43:16 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:04:40 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,21 @@ void	left(t_3D *g)
 	g->diry = olddirx * sin(-g->rotspeed) + g->diry * cos(-g->rotspeed);
 	g->planex = g->planex * cos(-g->rotspeed) - g->planey * sin(-g->rotspeed);
 	g->planey = oldplanex * sin(-g->rotspeed) + g->planey * cos(-g->rotspeed);
+}
+
+int	ft_key_press(int key, t_3D *r)
+{
+	if (key == 53)
+		exit('exit');
+	if (key == 17)
+		exit('exit');
+	if (key == 13)
+		upright(r);
+	if (key == 1)
+		down(r);
+	if (key == 123)
+		left(r);
+	if (key == 124)
+		right(r);
+	return (0);
 }

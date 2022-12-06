@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:40:56 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/30 14:00:32 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 14:59:25 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_start_cube(t_3D *r)
 	r->win = mlx_new_window(r->mlx, WIDTH, HEIGHT, "Cub3D");
 	init_struct_3D(r);
 	mlx_key_hook(r->win, deal_key, r);
+	mlx_hook(r->win, 2, 0, ft_key_press, r);
 	mlx_loop_hook(r->mlx, boucle, r);
 	mlx_loop(r->mlx);
 }
