@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:40:50 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 16:27:24 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/06 12:01:32 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,20 @@ void	ft_verif_dir(t_stock *s)
 
 void	ft_lexer(t_stock *s)
 {
-	int	i;
-	int	y;
+	int		i;
+	int		y;
+	char	**mapspli;
 
 	i = 0;
 	y = 0;
 	while (s->map[i])
 	{
-		while (s->map[i][y] != '\0')
-		{
-			if (s->map[i][y] == 'C')
-				ft_lexer_c(s, i);
-			if (s->map[i][y] == 'F')
-				ft_lexer_f(s, i);
-			y++;
-		}
-		y = 0;
+		mapspli = ft_split(s->map[i], 32);
+		if (mapspli[0][0] == 'C')
+			ft_lexer_c(s, i);
+		if (mapspli[0][0] == 'F')
+			ft_lexer_f(s, i);
+		free_tab(mapspli);
 		i++;
 	}
 }
