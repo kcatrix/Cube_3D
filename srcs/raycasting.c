@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:30:17 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/06 15:20:45 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 10:25:31 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,12 @@ void	raycasting(t_3D *g)
 		dda(g);
 		g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		if (g->rayon.side == 0 || g->rayon.side == 1)
-			g->rayon.dist = (g->rayon.x - g->pos_px + (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
+			g->rayon.dist = (g->rayon.x - g->pos_px+ (1 - g->rayon.step_x) / 2) / g->rayon.dir_x;
 		else
 			g->rayon.dist = (g->rayon.y - g->pos_py + (1 - g->rayon.step_y) / 2) / g->rayon.dir_y;
-		g->columnheight = (int)(((double)HEIGHT * ratio) / g->rayon.dist);
-		g->draw_start = (-g->columnheight / 2 + HEIGHT / 2);
-		g->draw_end = (g->columnheight / 2 + HEIGHT / 2);
-		if (g->draw_start < 0)
-			g->draw_start = 0;
-		if (g->draw_end > HEIGHT)
-			g->draw_end = HEIGHT - 1;
-		draw_color(g);
+		g->rayon.h = (int)(((double)HEIGHT * ratio) / g->rayon.dist);
+		printf("sale batars\n");
+		draw_texture(g, -g->rayon.h / 2 + HEIGHT / 2, g->rayon.h / 2 + HEIGHT / 2);
 		g->rayon.nb++;
 	}
 	mlx_put_image_to_window(g->mlx, g->win, g->img, 0, 0);
@@ -126,4 +121,44 @@ void	get_step(t_3D *g)
 		g->rayon.step_y = 1;
 		g->rayon.side_y = (g->rayon.y - g->pos_py + 1.0) * g->rayon.delta_y;
 	}
+}
+
+void	draw_texture(t_3D *g, int start, int end)
+{
+	double	step;
+	double	texpos;
+	int		texy;
+	int		texx;
+
+	
+	if (start < 0)
+		start = 0;
+	if (end > HEIGHT)
+		end = HEIGHT - 1;
+	init_data(g, &texx);
+	step = 1.0 * g->wall[g->rayon.side].h / g->rayon.h;
+	texpos = (start - HEIGHT / 2 + g->rayon.h / 2) * step;
+	while (start < end)
+	{
+		texy = (int)texpos & (g->wall[g->rayon.side].h - 1);
+		printf("g->rayon.h = %d\n", g->wall[0].w);
+		texpos += step;
+		g->buffer[start * WIDTH + g->rayon.nb] = g->wall[g->rayon.side].buffer[texy
+			* g->wall[g->rayon.side].w + texx];
+		start++;
+	}
+}
+
+void	init_data(t_3D *g, int *texx)
+{
+	if (g->rayon.side <= 1)
+		g->rayon.wallx = g->pos_py + g->rayon.dist * g->rayon.dir_y;
+	else
+		g->rayon.wallx = g->pos_px + g->rayon.dist * g->rayon.dir_x;
+	g->rayon.wallx -= floor((g->rayon.wallx));
+	*texx = (int)(g->rayon.wallx * (double)g->wall[g->rayon.side].w);
+	if (g->rayon.side <= 1 && g->dirx > 0)
+		*texx = g->wall[g->rayon.side].w - *texx - 1;
+	if (g->rayon.side > 1 && g->diry < 0)
+		*texx = g->wall[g->rayon.side].w - *texx - 1;
 }

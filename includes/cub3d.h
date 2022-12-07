@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/06 15:23:56 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/06 17:51:18 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,17 @@ typedef struct s_stock
 	int		playernb;
 }	t_stock;
 
+typedef struct s_wall
+{
+	void	*img;
+	int		*buffer;
+	int		w;
+	int		h;
+	int		bpp;
+	int		sizel;
+	int		endian;
+}	t_wall;
+
 typedef struct s_rayon
 {
 	int		x;
@@ -103,6 +114,7 @@ typedef struct s_3D
 	int		draw_end;
 	double	speed;
 	double	rotspeed;
+	t_wall	wall[4];
 	t_rayon	rayon;
 }	t_3D;
 
@@ -175,4 +187,6 @@ void	left(t_3D *g);
 void	right(t_3D *g);
 void	ft_createmap(t_stock *stock, int i);
 int		ft_key_press(int key, t_3D *r);
+void	init_data(t_3D *g, int *texx);
+void	draw_texture(t_3D *g, int start, int end);
 #endif
