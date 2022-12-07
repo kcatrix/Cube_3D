@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sky_and_floor.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:32:15 by kevyn             #+#    #+#             */
-/*   Updated: 2022/11/30 16:16:20 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/07 14:17:56 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,70 @@ void	ft_cree_sky(t_stock *stock, t_3D *r)
 	r->floor[2] = stock->valffix3;
 }
 
+int	ft_key_press(int key, t_3D *r)
+{
+	if (key == 53)
+		exit('exit');
+	if (key == 17)
+	{
+		mlx_destroy_window(r->mlx, r->win);
+		exit('exit');
+	}
+	if (key == 13)
+		up(r);
+	if (key == 1)
+		down(r);
+	if (key == 0)
+		newleft(r);
+	if (key == 2)
+		newright(r);
+	if (key == 123)
+		left(r);
+	if (key == 124)
+		right(r);
+	if	(key == 6)
+		cammousel(r);
+	/*if	(key == )
+		cammouser(r);*/
+	return (0);
+}
+
+void	left(t_3D *g)
+{
+	double	oldplanex;
+	double	olddirx;
+
+	oldplanex = g->planex;
+	olddirx = g->dirx;
+	g->dirx = g->dirx * cos(-g->rotspeed) - g->diry * sin(-g->rotspeed);
+	g->diry = olddirx * sin(-g->rotspeed) + g->diry * cos(-g->rotspeed);
+	g->planex = g->planex * cos(-g->rotspeed) - g->planey * sin(-g->rotspeed);
+	g->planey = oldplanex * sin(-g->rotspeed) + g->planey * cos(-g->rotspeed);
+}
+
+void	ft_checkmapplayer(char **map, int i, t_stock *stock)
+{
+	int	j;
+	int	fin;
+
+	j = 0;
+	fin = 0;
+	while (map[i])
+	{
+		if (checkspace(map[i]) == 1)
+		{
+			verifpostmap(map, i);
+			break ;
+		}
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N' || map[i][j] == 'E'
+			|| map[i][j] == 'W' || map[i][j] == 'S')
+				stock->playernb++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	ft_errplayer(stock);
+}

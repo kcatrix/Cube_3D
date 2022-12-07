@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkopen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:12:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/22 20:28:26 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/12/07 12:20:07 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,39 @@
 
 void	ft_checkopen(t_stock *stock)
 {
-	stock->fde = open(stock->pathspritee, O_RDWR, 0777);
+	stock->fde = open(stock->pathspritee, O_RDONLY, 0777);
 	if (stock->fde == -1)
 	{
 		printf("erreur: impossible de lire %s\n", stock->pathspritee);
 		stock->testfd++;
 	}
-	stock->fdn = open(stock->pathspriten, O_RDWR, 0777);
+	close(stock->fde);
+	stock->fdn = open(stock->pathspriten, O_RDONLY, 0777);
 	if (stock->fdn == -1)
 	{
 		printf("erreur: impossible de lire %s\n", stock->pathspriten);
 		stock->testfd++;
 	}
+	close(stock->fdn);
 	ft_checkopen2(stock);
 }
 
 void	ft_checkopen2(t_stock *stock)
 {
-	stock->fds = open(stock->pathsprites, O_RDWR, 0777);
+	stock->fds = open(stock->pathsprites, O_RDONLY, 0777);
 	if (stock->fds == -1)
 	{
 		printf("erreur: impossible de lire %s\n", stock->pathsprites);
 		stock->testfd++;
 	}
-	stock->fdw = open(stock->pathspritew, O_RDWR, 0777);
+	close(stock->fds);
+	stock->fdw = open(stock->pathspritew, O_RDONLY, 0777);
 	if (stock->fdw == -1)
 	{
 		printf("erreur: impossible de lire %s\n", stock->pathspritew);
 		stock->testfd++;
 	}
+	close(stock->fdw);
 	if (stock->testfd > 0)
 		exit(0);
 }

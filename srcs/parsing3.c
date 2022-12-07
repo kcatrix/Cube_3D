@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:58:50 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/11/30 16:04:52 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/07 13:15:47 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,31 +105,4 @@ void	ft_checkmapchar(char **map, int i)
 		j = 0;
 		i++;
 	}
-}
-
-void	ft_checkmapplayer(char **map, int i, t_stock *stock)
-{
-	int	j;
-	int	fin;
-
-	j = 0;
-	fin = 0;
-	while (map[i])
-	{
-		if (checkspace(map[i]) == 1)
-		{
-			verifpostmap(map, i);
-			break ;
-		}
-		while (map[i][j])
-		{
-			if (map[i][j] == 'N' || map[i][j] == 'E'
-			|| map[i][j] == 'W' || map[i][j] == 'S')
-				stock->playernb++;
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	ft_errplayer(stock);
 }

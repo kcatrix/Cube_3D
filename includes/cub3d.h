@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/06 17:51:18 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/07 14:00:58 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ void	ft_cree_floor_loop(t_stock *stock, t_3D *r, int i, int y);
 void	ft_cree_sky_loop(t_stock *stock, t_3D *r, int i, int y);
 int		deal_key(int key, t_3D *r);
 void	init_struct_r(t_stock *stock, t_3D *r);
-void	init_struct_3D(t_3D *r);
+void	init_struct_3d(t_3D *r);
 void	draw_floor(t_3D *r);
 void	ft_dir_player(t_3D *r);
 void	ft_init_val(t_3D *r);
@@ -187,6 +187,12 @@ void	left(t_3D *g);
 void	right(t_3D *g);
 void	ft_createmap(t_stock *stock, int i);
 int		ft_key_press(int key, t_3D *r);
-void	init_data(t_3D *g, int *texx);
+void	texture_prep2(t_3D *g, int *texx);
 void	draw_texture(t_3D *g, int start, int end);
+t_wall	texture_prep(void *mlx, char *file);
+void	ft_affecttext(t_stock *stock, t_3D *r);
+void	newleft(t_3D *g);
+void	newright(t_3D *g);
+void	cammousel(t_3D *g);
+void	cammouser(t_3D *g);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/06 15:27:26 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 14:08:21 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,19 @@ int	main(int ac, char **av)
 		valfix(&stock);
 		ft_checkopen(&stock);
 		last_parse(&stock);
+		ft_affecttext(&stock, &r);
 		init_struct_r(&stock, &r);
 		ft_start_cube(&r);
 	}
+}
+
+void	ft_affecttext(t_stock *stock, t_3D *r)
+{
+	r->mlx = mlx_init();
+	r->wall[0] = texture_prep(r->mlx, stock->pathspritew);
+	r->wall[1] = texture_prep(r->mlx, stock->pathspritee);
+	r->wall[3] = texture_prep(r->mlx, stock->pathsprites);
+	r->wall[2] = texture_prep(r->mlx, stock->pathspriten);
 }
 
 int	deal_key(int key, t_3D *r)
