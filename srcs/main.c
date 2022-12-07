@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/07 14:23:38 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 15:38:17 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 
 	i = 0;
 	y = 0;
-	if (ac >= 1)
+	if (ac > 1)
 	{
 		init_struct(&stock);
 		map = openmap(av, &y);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/07 14:27:19 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 15:24:35 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ typedef struct s_rayon
 
 typedef struct s_3D
 {
+	int		xmouse;
 	int		*buffer;
 	int		sizel;
 	int		bpp;
@@ -167,7 +168,7 @@ void	init_struct_3d(t_3D *r);
 void	draw_floor(t_3D *r);
 void	ft_dir_player(t_3D *r);
 void	ft_init_val(t_3D *r);
-void	init_ray(t_3D *g);
+void	ft_rayon(t_3D *g);
 void	get_step(t_3D *g);
 void	dda(t_3D *g);
 void	raycasting(t_3D *g);

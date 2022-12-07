@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sky_and_floor.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:32:15 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/07 14:22:02 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 14:52:00 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ int	ft_key_press(int key, t_3D *r)
 		left(r);
 	if (key == 124)
 		right(r);
-	if	(key == 6)
+	if (key == 6)
 		cammousel(r);
-	/*if	(key == )
-		cammouser(r);*/
 	return (0);
 }
 

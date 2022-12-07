@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/07 14:00:05 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 15:40:07 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	cammouser(t_3D *g)
 
 	oldplanex = g->planex;
 	olddirx = g->dirx;
-	g->dirx = g->dirx * cos(g->rotspeed / 10) - g->diry * sin(g->rotspeed / 10);
-	g->diry = olddirx * sin(g->rotspeed / 10) + g->diry * cos(g->rotspeed / 10);
-	g->planex = g->planex * cos(g->rotspeed / 10) - g->planey * sin(g->rotspeed / 10);
-	g->planey = oldplanex * sin(g->rotspeed / 10) + g->planey * cos(g->rotspeed / 10);
+	g->dirx = g->dirx * cos(g->rotspeed) - g->diry * sin(g->rotspeed);
+	g->diry = olddirx * sin(g->rotspeed) + g->diry * cos(g->rotspeed);
+	g->planex = g->planex * cos(g->rotspeed) - g->planey * sin(g->rotspeed);
+	g->planey = oldplanex * sin(g->rotspeed) + g->planey * cos(g->rotspeed);
 }
 
 void	cammousel(t_3D *g)
@@ -32,8 +32,8 @@ void	cammousel(t_3D *g)
 
 	oldplanex = g->planex;
 	olddirx = g->dirx;
-	g->dirx = g->dirx * cos(-g->rotspeed / 10) - g->diry * sin(-g->rotspeed / 10);
-	g->diry = olddirx * sin(-g->rotspeed / 10) + g->diry * cos(-g->rotspeed / 10);
-	g->planex = g->planex * cos(-g->rotspeed / 10) - g->planey * sin(-g->rotspeed / 10);
-	g->planey = oldplanex * sin(-g->rotspeed / 10) + g->planey * cos(-g->rotspeed / 10);
+	g->dirx = g->dirx * cos(-g->rotspeed) - g->diry * sin(-g->rotspeed);
+	g->diry = olddirx * sin(-g->rotspeed) + g->diry * cos(-g->rotspeed);
+	g->planex = g->planex * cos(-g->rotspeed) - g->planey * sin(-g->rotspeed);
+	g->planey = oldplanex * sin(-g->rotspeed) + g->planey * cos(-g->rotspeed);
 }
