@@ -6,7 +6,7 @@
 /*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/07 14:00:58 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 14:27:19 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,4 +195,5 @@ void	newleft(t_3D *g);
 void	newright(t_3D *g);
 void	cammousel(t_3D *g);
 void	cammouser(t_3D *g);
+int		win_closed(t_3D *r);
 #endif

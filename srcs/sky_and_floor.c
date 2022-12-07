@@ -6,7 +6,7 @@
 /*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:32:15 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/07 14:17:56 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/07 14:22:02 by tnicoue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int	ft_key_press(int key, t_3D *r)
 	if (key == 53)
 		exit('exit');
 	if (key == 17)
-	{
-		mlx_destroy_window(r->mlx, r->win);
 		exit('exit');
-	}
 	if (key == 13)
 		up(r);
 	if (key == 1)
