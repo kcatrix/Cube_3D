@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:40:56 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/08 14:02:46 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 14:24:14 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int	boucle(t_3D	*r)
 {
-	/*if (r->testmove == 1)
+	if (r->testmove == 1)
 	{
 		draw_floor(r);
 		raycasting(r);
-	}*/
-	draw_floor(r);
-	raycasting(r);
+	}
 	r->testmove = 0;
 	return (1);
 }

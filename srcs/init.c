@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:35:45 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/08 14:07:09 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 14:22:15 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	init_struct_r(t_stock *stock, t_3D *r)
 	ft_cree_map(stock, r);
 	ft_cree_sky(stock, r);
 	ft_pos_player(r);
-	//ft_dir_player(r);
 	ft_fov(r);
 }
 
