@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/08 11:27:21 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 13:04:27 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ int	deal_key(int key, t_3D *r)
 		left(r);
 	if (key == 124)
 		right(r);
+	if (key == 0)
+		newleft(r);
+	if (key == 2)
+		newright(r);
 	return (0);
 }
 

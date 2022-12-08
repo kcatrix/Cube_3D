@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:19:27 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/08 09:43:48 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 14:04:01 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_init_val(t_3D *r)
 {
 	r->planex = 0;
 	r->planey = 0.66;
-	r->speed = 0.08;
+	r->speed = 0.09;
 	r->rotspeed = 0.06;
 }
 
@@ -68,8 +68,6 @@ void	ft_pos_player(t_3D *r)
 		x = 0;
 		y++;
 	}
-	r->pos_px = 0;
-	r->pos_py = 0;
 }
 
 char	**ft_malloc_map(t_stock *stock, t_3D *r, int i)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnicoue <tnicoue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:35:45 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/07 13:21:13 by tnicoue          ###   ########.fr       */
+/*   Updated: 2022/12/08 14:07:09 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_struct_r(t_stock *stock, t_3D *r)
 	ft_cree_map(stock, r);
 	ft_cree_sky(stock, r);
 	ft_pos_player(r);
-	ft_dir_player(r);
+	//ft_dir_player(r);
 	ft_fov(r);
 }
 
@@ -49,8 +49,8 @@ double	fov_gest(t_3D *r, int check)
 		return (-0.66);
 	}
 	if (r->dir == 'W' || r->dir == 'N')
-		return (-1);
-	return (1);
+		return (-1.);
+	return (1.);
 }
 
 void	init_struct(t_stock *stock)

@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:24:31 by kcatrix           #+#    #+#             */
-/*   Updated: 2022/12/08 11:30:37 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 13:59:17 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void	down(t_3D *g)
 
 void	newleft(t_3D *g)
 {
-	if (g->map[(int)(g->pos_py - g->planex * g->speed)]
-		[(int)g->pos_px] != '1')
+
+	if (g->map[(int)(g->pos_py - g->planey * g->speed)][(int)g->pos_px] != '1')
 	{
 		g->testmove = 1;
+		printf("move\n");
 		g->pos_py -= g->planey * g->speed;
 	}
 	if (g->map[(int)(g->pos_py)][(int)(g->pos_px - g->planex * g->speed)] != '1')
@@ -57,6 +58,7 @@ void	newleft(t_3D *g)
 
 void	newright(t_3D *g)
 {
+	
 	if (g->map[(int)(g->pos_py + g->planey * g->speed)][(int)g->pos_px] != '1')
 	{
 		g->testmove = 1;
@@ -67,6 +69,7 @@ void	newright(t_3D *g)
 		g->testmove = 1;
 		g->pos_px += g->planex * g->speed;
 	}
+	
 }
 
 void	right(t_3D *g)
