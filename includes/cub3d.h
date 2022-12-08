@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:57:59 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:35 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 11:27:03 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct s_3D
 	int		columnheight;
 	int		draw_start;
 	int		draw_end;
+	int		testmove;
 	double	speed;
 	double	rotspeed;
 	t_wall	wall[4];

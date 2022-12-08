@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:32:15 by kevyn             #+#    #+#             */
-/*   Updated: 2022/12/07 14:52:00 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 11:30:50 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	left(t_3D *g)
 	double	oldplanex;
 	double	olddirx;
 
+	g->testmove = 1;
 	oldplanex = g->planex;
 	olddirx = g->dirx;
 	g->dirx = g->dirx * cos(-g->rotspeed) - g->diry * sin(-g->rotspeed);

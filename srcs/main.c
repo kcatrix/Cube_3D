@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:24:15 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/12/07 15:38:17 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/12/08 11:27:21 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 
 	i = 0;
 	y = 0;
+	r.testmove = 1;
 	if (ac > 1)
 	{
 		init_struct(&stock);

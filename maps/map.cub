@@ -1,9 +1,9 @@
-F 102,90,88
-C 138,154,111
-
 NO ./texture/NorthTex.xpm
 SO ./texture/SouthTex.xpm
+F 102,90,88
 WE ./texture/WestTex.xpm
+
+C 138,154,111
 EA ./texture/EastTex.xpm
 
 
